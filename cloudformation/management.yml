@@ -1,5 +1,5 @@
 Description: >
-  qdunggs95 / Capstone Project
+  BonLV / Capstone Project
   Creates two individual hosts to manage the EKS-Cluster
 
 Parameters:
@@ -9,7 +9,7 @@ Parameters:
     Type: String
   SSHKeyName:
     Description: SSH key for management access
-    Default: dungnq21Project5
+    Default: BonLV_Project5
     Type: String
   amiImageId:
     Description: Defines the Image-ID of the OS to deploy

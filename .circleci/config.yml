@@ -144,7 +144,6 @@ jobs:
           paths:
             - project/ansible/inventory.txt
             - project/ansible/checkIfDeployed.txt
-            
 
   configure-infrastructure:
     docker:
@@ -155,7 +154,7 @@ jobs:
       - install_ansible
       - install-kubectl
       - add_ssh_keys:
-          fingerprints: [31:30:44:3f:d4:92:b1:68:4f:0d:a9:66:b4:ec:40:5a]
+          fingerprints: [41:7d:11:37:6e:ce:b0:d8:21:f8:e7:79:f4:9d:fb:15]
       - attach_workspace:
           at: ~/
       - run:
@@ -179,12 +178,12 @@ jobs:
       - install_ansible
       - install-kubectl
       - add_ssh_keys:
-          fingerprints: [31:30:44:3f:d4:92:b1:68:4f:0d:a9:66:b4:ec:40:5a]
+          fingerprints: [41:7d:11:37:6e:ce:b0:d8:21:f8:e7:79:f4:9d:fb:15]
       - attach_workspace:
           at: ~/
       - run:
           name: Configure server
-          command: |        
+          command: |
             cat ~/project/ansible/inventory.txt
             cd ansible
             ansible-playbook -i ~/project/ansible/inventory.txt ~/project/ansible/configure-cluster.yml
@@ -214,7 +213,7 @@ jobs:
       - install_awscli
       - install_ansible
       - add_ssh_keys:
-          fingerprints: [31:30:44:3f:d4:92:b1:68:4f:0d:a9:66:b4:ec:40:5a]
+          fingerprints: [41:7d:11:37:6e:ce:b0:d8:21:f8:e7:79:f4:9d:fb:15]
       - attach_workspace:
           at: ~/
       - run:
@@ -234,11 +233,11 @@ workflows:
             - test-build
           filters:
             branches:
-              only: [ main ]
+              only: [main]
       - deploy-infrastructure:
           filters:
             branches:
-              only: [ main ]
+              only: [main]
       - configure-infrastructure:
           requires:
             - deploy-infrastructure

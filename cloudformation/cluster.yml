@@ -1,7 +1,7 @@
 Description: >
-  qdunggs95 / Capstone Project
+  BonLV / Capstone Project
   Creates an Amazon EKS Cluster
-  
+
 Parameters:
   EnvironmentName:
     Description: An Environment name that will be prefixed to resources
@@ -35,7 +35,7 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
         - arn:aws:iam::aws:policy/AmazonEKSServicePolicy
         - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
-        
+
   CapstoneProjectCluster:
     Type: AWS::EKS::Cluster
     Properties:
