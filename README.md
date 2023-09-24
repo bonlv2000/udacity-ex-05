@@ -1,3 +1,4 @@
+https://github.com/qdunggs95/AWS_Project_5
 # Cloud DevOps Engineer Capstone Project
 
 This project represents the successful completion of the last final Capstone project and the Cloud DevOps Engineer Nanodegree at Udacity.
@@ -34,7 +35,7 @@ The CloudFormation Deployment can be broken down into four Parts:
 
 ## CircleCi - CI/CD Pipelines
 
-I used CircleCi to create a CI/CD Pipeline to test and deploy changes manually before they get deployed automatically to the Cluster using Ansible.
+I used CircleCi to create a CI/CD  to test and deploy changes manually before they get deployed automatically to the Cluster using Ansible.
 
 #### From Zero to Hero demonstration:
 

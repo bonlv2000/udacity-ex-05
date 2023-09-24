@@ -1,5 +1,5 @@
 Description: >
-  Felix Lutze / Capstone Project
+  qdunggs95 / Capstone Project
   Creates the nodegroup for the Amazon EKS Cluster
 Parameters:
   EnvironmentName:
@@ -24,7 +24,7 @@ Parameters:
 
   KeyPairName:
     Description: The EC2 Key Pair to allow SSH access to the instances
-    Default: udacity
+    Default: dungnq21Project5
     Type: AWS::EC2::KeyPair::KeyName
 
 Mappings:
