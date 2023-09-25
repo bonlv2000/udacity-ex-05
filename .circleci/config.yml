@@ -133,11 +133,20 @@ jobs:
           name: Extract the IPs of the management instances for Ansible
           command: |
             echo [management] > ~/project/ansible/inventory.txt
+            export BACKEND_IP=$(aws ec2 describe-instances \
+              --region "${AWS_DEFAULT_REGION}" \
+              --query 'Reservations[*].Instances[*].PublicIpAddress' \
+              --filters "Name=tag:Name,Values=${ENVIRONMENT_NAME}-management*" \
+              --output text)
+
+            echo ${BACKEND_IP}
             aws ec2 describe-instances \
               --region "${AWS_DEFAULT_REGION}" \
               --query "Reservations[*].Instances[*].PublicIpAddress" \
               --filters "Name=tag:Name,Values=${ENVIRONMENT_NAME}-management*" \
               --output text >> ~/project/ansible/inventory.txt
+
+
             cat ~/project/ansible/inventory.txt
       - persist_to_workspace:
           root: ~/
@@ -161,6 +170,15 @@ jobs:
           name: Configure server
           command: |
             echo [management] > ~/project/ansible/inventory.txt
+            export BACKEND_IP=$(aws ec2 describe-instances \
+              --region "${AWS_DEFAULT_REGION}" \
+              --query 'Reservations[*].Instances[*].PublicIpAddress' \
+              --filters "Name=tag:Name,Values=${ENVIRONMENT_NAME}-management*" \
+              --output text)
+
+            echo ${BACKEND_IP}
+
+
             aws ec2 describe-instances \
               --region "${AWS_DEFAULT_REGION}" \
               --query "Reservations[*].Instances[*].PublicIpAddress" \
