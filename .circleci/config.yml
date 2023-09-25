@@ -133,13 +133,14 @@ jobs:
           name: Extract the IPs of the management instances for Ansible
           command: |
             echo [management] > ~/project/ansible/inventory.txt
+            echo "${ENVIRONMENT_NAME}"
             export BACKEND_IP=$(aws ec2 describe-instances \
               --region "${AWS_DEFAULT_REGION}" \
               --query 'Reservations[*].Instances[*].PublicIpAddress' \
               --filters "Name=tag:Name,Values=${ENVIRONMENT_NAME}-management*" \
               --output text)
 
-            echo ${BACKEND_IP}
+            echo "${BACKEND_IP}"
             aws ec2 describe-instances \
               --region "${AWS_DEFAULT_REGION}" \
               --query "Reservations[*].Instances[*].PublicIpAddress" \
