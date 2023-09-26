@@ -22,7 +22,7 @@ spec:
         app: capstone-project
     spec:
       containers:
-        - image: BonLV/capstone-project:latest
+        - image: BonLV/capstone-project:{{ CIRCLE_WORKFLOW_ID }}
           imagePullPolicy: Always
           name: capstone-project
           ports:
