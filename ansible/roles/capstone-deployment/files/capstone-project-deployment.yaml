@@ -22,7 +22,7 @@ spec:
         app: capstone-project
     spec:
       containers:
-        - image: BonLV/capstone-project:#{Build.BuildId}#
+        - image: binlv2011/capstone:#{Build.BuildId}#
           imagePullPolicy: Always
           name: capstone-project
           ports:
